@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        <a href="{{route("perpus.categories.create")}}" class="btn btn-primary">Create New</a>
+                        <a href="{{ route('perpus.categories.create') }}" class="btn btn-primary">Create New</a>
                     </div>
                 </div>
             </div>
@@ -22,21 +22,23 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
+                                    <th>name</th>
                                     <th class="w-1"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Paweł Kuna</td>
-                                    <td class="text-muted">
-                                        UI Designer, Training
-                                    </td>
-                                    <td class="d-flex gap-1">
-                                        <a href="#" class="btn">Ubah</a>
-                                        <a href="#" class="btn">Hapus</a>
-                                    </td>
-                                </tr>
+                                @foreach ($data as $item)
+                                    <tr>
+                                        <td>#</td>
+                                        <td class="text-muted">
+                                            {{ $item->name }}
+                                        </td>
+                                        <td class="d-flex gap-1">
+                                            <a href="#" class="btn">Ubah</a>
+                                            <a href="#" class="btn">Hapus</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

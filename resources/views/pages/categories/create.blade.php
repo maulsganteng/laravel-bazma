@@ -1,7 +1,16 @@
 @section('pageTitle', 'Buat Kategori')
 @extends('app.app')
 @section('content')
+    @if ($errors->any())
+    @endif
     <div class="container-xl">
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $item)
+                    <li>{{ $item }}</li>
+                @endforeach
+            </ul>
+        </div>
         <div class="row row-cards">
             <div class="row g-2 align-items-center">
                 <div class="col">
@@ -19,12 +28,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <form action="{{route("perpus.categories.store")}}" method="post" autocomplete="off">
+                            <form action="{{ route('perpus.categories.store') }}" method="post" autocomplete="off">
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label required">Nama Kategori</label>
-                                    <input type="text" class="form-control" name="example-text-input"
-                                        placeholder="Input Nama Kategori">
+                                    <input type="text" class="form-control" name="name"
+                                        value="{{Session::get('name')}}"placeholder="Input Nama Kategori">
                                 </div>
                                 <button class="btn btn-primary">Create </button>
                             </form>

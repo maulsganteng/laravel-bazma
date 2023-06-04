@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Pages\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,4 +24,7 @@ Route::prefix('perpus')->name("perpus.")->group(function () {
     // Route::get("/category", [App\Http\Controllers\Pages\HomeController::class, 'category'])->name("category");
     Route::get("/author", [App\Http\Controllers\Pages\HomeController::class, 'author'])->name("author");
     Route::get("/borrowings", [App\Http\Controllers\Pages\HomeController::class, 'borrowings'])->name("borrowings");
+   
+
+
 });
